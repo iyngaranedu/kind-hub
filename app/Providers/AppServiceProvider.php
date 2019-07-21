@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Providers\School\TeacherServiceProvider;
+use App\Providers\School\ClassRoomServiceProvider;
+use App\Providers\School\StudentServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +16,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->register(TeacherServiceProvider::class);
+        $this->app->register(ClassRoomServiceProvider::class);
+        $this->app->register(StudentServiceProvider::class);
     }
 
     /**
