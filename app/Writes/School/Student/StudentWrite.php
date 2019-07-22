@@ -67,7 +67,7 @@ class StudentWrite implements StudentWriteInterface
             $this->_student->first_name = isset($this->_requestData['first_name']) ? trim($this->_requestData['first_name']) : null;
             $this->_student->last_name = isset($this->_requestData['last_name']) ? trim($this->_requestData['last_name']) : null;
             $this->_student->gender = isset($this->_requestData['gender']) ? trim($this->_requestData['gender']) : null;
-            $this->_student->tbl_class_room_id = isset($this->_requestData['class_room_id']) ? trim($this->_requestData['class_room_id']) : null;
+            $this->_student->tbl_class_room_id = isset($this->_requestData['class_room_id']) ? (int)$this->_requestData['class_room_id'] : null;
 
             $this->_student->save();
         }

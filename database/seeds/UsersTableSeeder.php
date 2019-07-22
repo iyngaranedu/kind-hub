@@ -16,12 +16,14 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Iyngaran',
                 'email' => 'dev@iyngaran.info',
-                'password' => Hash::make('abc@123456')
+                'password' => Hash::make('abc@123456'),
+                'is_verified' => 1
             ],
             [
                 'name' => 'Developer',
                 'email' => 'dev@doamin.com',
-                'password' => Hash::make('abc@123456')
+                'password' => Hash::make('abc@123456'),
+                'is_verified' => 1
             ]
         ];
         foreach($users As $user){
