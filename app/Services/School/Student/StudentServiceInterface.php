@@ -16,6 +16,7 @@ namespace App\Services\School\Student;
 use App\Models\School\Student;
 use Illuminate\Database\Eloquent\Collection;
 use phpDocumentor\Reflection\Types\Boolean;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
  * The service interface class for student service
@@ -53,7 +54,7 @@ interface StudentServiceInterface
      *
      * @return Collection The collection of student
      */
-    public function getAll(): Collection;
+    public function getAll(int $page = 1): LengthAwarePaginator;
 
     /**
      * The function is to get a student

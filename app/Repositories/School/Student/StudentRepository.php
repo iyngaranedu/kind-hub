@@ -16,6 +16,7 @@ namespace App\Repositories\School\Student;
 use Illuminate\Database\Eloquent\Collection;
 use App\Models\School\Student;
 use phpDocumentor\Reflection\Types\Boolean;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
  * The repository class for Student
@@ -67,11 +68,11 @@ class StudentRepository implements StudentRepositoryInterface
      *
      * @return Collection
      */
-    public function getAll(): Collection
+    public function getAll(int $page): LengthAwarePaginator
     {
         return $this->_model
             ->orderBy('first_name', 'asc')
-            ->get();
+            ->paginate(Student::RESULTS_PER_PAGE, ['*'], 'page', $page);
     }
 
 

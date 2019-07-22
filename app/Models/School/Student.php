@@ -23,6 +23,8 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
 
+    const RESULTS_PER_PAGE = 20;
+
     /**
      * The table associated with the model.
      *

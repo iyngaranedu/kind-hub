@@ -19,6 +19,7 @@ use App\Writes\School\Student\StudentWriteInterface;
 use App\Repositories\School\Student\StudentRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 use phpDocumentor\Reflection\Types\Boolean;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
  * The service class for student object
@@ -100,9 +101,9 @@ class StudentService implements StudentServiceInterface
      *
      * @return Collection The collection of student
      */
-    public function getAll(): Collection
+    public function getAll(int $page = 1): LengthAwarePaginator
     {
-        return $this->_studentRepository->with(new Student)->getAll();
+        return $this->_studentRepository->with(new Student)->getAll($page);
     }
 
     /**

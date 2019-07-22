@@ -16,6 +16,7 @@ namespace App\Repositories\School\Student;
 use Illuminate\Database\Eloquent\Collection;
 use App\Models\School\Student;
 use phpDocumentor\Reflection\Types\Boolean;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
  * The repository interface class for Student
@@ -50,7 +51,7 @@ interface StudentRepositoryInterface
      *
      * @return Collection Student collection
      */
-    public function getAll(): Collection;
+    public function getAll(int $page): LengthAwarePaginator;
 
     /**
      * The function is to delete a student by id
