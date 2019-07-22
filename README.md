@@ -36,3 +36,5 @@
 6. Run the seeder. `php artisan db:seed`
 
 7. then start the application. `php artisan serve` 
+
+
