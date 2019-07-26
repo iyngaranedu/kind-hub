@@ -90,6 +90,7 @@ class StudentController extends Controller
         return response()->json(
             [
             'student' => $this->_student->create($request->all()),
+                'STATUS' => 'SUCCESS'
             ], 200
         );
     }
@@ -113,6 +114,7 @@ class StudentController extends Controller
         return response()->json(
             [
                 'student' => $this->_student->update($request->all(), (int)$id),
+                'STATUS' => 'SUCCESS'
             ], 200
         );
     }
@@ -128,6 +130,7 @@ class StudentController extends Controller
     {
         return response()->json([
             'is_deleted' => $this->_student->delete((int)$id),
+            'STATUS' => 'SUCCESS'
         ], 200);
     }
 }

@@ -134,8 +134,15 @@ class AuthController extends Controller
             // something went wrong whilst attempting to encode the token
             return response()->json(['success' => false, 'error' => 'Failed to login, please try again.'], 500);
         }
+
+
         // all good so return the token
-        return response()->json(['success' => true, 'data'=> [ 'token' => $token ]], 200);
+        JWTAuth::setToken($token);
+        $user = JWTAuth::authenticate($token);
+        $userInfo = [
+            'displayName' => $user->name
+        ];
+        return response()->json(['success' => true, 'data'=> [ 'token' => $token,'user'=>$userInfo ]], 200);
     }
     /**
      * Log out
